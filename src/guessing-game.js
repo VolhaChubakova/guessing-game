@@ -16,14 +16,11 @@ class GuessingGame {
 
         const number=this.number;
        	const game = new GuessingGame();
-                	
-      	game.setRange(this.min, this.max);
+        game.setRange(this.min, this.max);
         
-       
-
         while ( this.min <= this.max) {
 
-            if (Math.ceil(result) == number) { 
+            if (result == number) { 
                 return number;
                 }
 
@@ -35,20 +32,20 @@ class GuessingGame {
                   return game.lower();
                  }
           
-             var result= Math.ceil( (this.min + this.max)/2 );
+             var result= Math.ceil((this.min + this.max)/2);
         }
 
           return null;
       }
       
     lower() {
-        var result= Math.ceil( (this.min + this.max)/2 );
-        return this.max=Math.ceil(result-1);	 
+        var result= Math.ceil((this.min + this.max)/2);
+        return this.max=result;	 
             }
 
     greater() {
         var result= Math.ceil( (this.min + this.max)/2 );
-        return  this.min=Math.ceil(result+1); 
+        return  this.min=result; 
             }
 
 }
