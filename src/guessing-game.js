@@ -1,57 +1,66 @@
 class GuessingGame {
+
+
+
     constructor() {
 
-    this.number=null;
+    this.number=0;
+    this.min=0;
+    this.max=0; 
+
     }
 
-    setRange(min, max) {
+       
+        setRange(min, max) {
 
-    	while (min==0){
-            var start=0;
-         	  var end=max;
-    	} 
-    	   		
-       }
-
-    guess() {
-
-    	const game = new GuessingGame();
-    	game.setRange(min, max);
-
-
-        let middle= (start + end) / 2;
-
-        
-       while (result != number )
-
-        {
-
-        if (result==middle) {
-              result==number;
-              return number;
+            this.min=min;
+            this.max=max;                
             }
-       	if (result<middle){
-       		game.lower();
-       	}
 
-        else if (result>middle){
-       		game.greater();
-       	}
-	
-        return number;
+        guess() {
+
+
+        const number=this.number;
+       	const game = new GuessingGame();
+                	
+      	game.setRange(this.min, this.max);
+
+
+        while ( this.min <= this.max) 
+        {
+          
+         let result= (this.min + this.max)/2;
+         
+         if (result == number) { 
+                return number;
+            }
+
+         else if (result < number) {
+            return game.greater();
+         }
+        
+         else { 
+          return game.lower();
+         }
+
+         return null;
+
         }
-      	
-    }
+      }
+      
+
 
     lower() {
-    	   start=start; 
-    		end=result-1;   	          
-        }
+         let result=(this.min+this.max)/2;
+    		 return this.max=result-1;   	 
+            }
 
     greater() {
-    	start=result+1; 
-    	end=end;
-    }
+                 let result= (this.min+this.max)/2;
+               return  this.min=result+1; 
+
+
+             }
 
 }
 
